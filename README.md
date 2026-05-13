@@ -84,7 +84,7 @@ Policies are applied only to a test group to simulate controlled rollout.
 ## 🔐 3. Policy Enforcement (Real Authentication Flow)
 
 ### MFA Challenge Triggered
-![MFA Challenge](screenshots/03-enforcement/mfa-challenge-trigger.png)
+![MFA Challenge](screenshots/03-enforcement/mfa-challenge-triggered.png)
 
 ---
 
@@ -94,7 +94,7 @@ Policies are applied only to a test group to simulate controlled rollout.
 ---
 
 ### MFA After Authentication
-![MFA After](screenshots/03-enforcement/mfa-challenge-after.png)
+![MFA After](screenshots/03-enforcement/mfa-challenge-after-registration.png)
 
 ---
 
