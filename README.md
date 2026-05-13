@@ -1,168 +1,172 @@
-# 🔐 Entra Hybrid Identity + Zero Trust Conditional Access Lab
+# 🔐 Entra ID Hybrid Identity + Zero Trust Lab
 
 ## 📌 Overview
-This project demonstrates the implementation of a Zero Trust security model using Microsoft Entra ID in a hybrid identity environment.
 
-The lab simulates enterprise identity security practices including:
+This project simulates a real-world **Zero Trust Identity Security implementation** using Microsoft Entra ID (Azure AD).
+
+The lab demonstrates:
+
 - Conditional Access policy design
-- Risk-based authentication
-- Multi-factor authentication (MFA)
-- Real-world authentication validation and logging
+- Identity Protection (Sign-in Risk + User Risk)
+- MFA enforcement
+- Forced password reset for compromised users
+- Real authentication flows and validation through logs
 
 ---
 
-## 🧱 Environment Architecture
+## 🧱 Environment
 
-- On-Prem Active Directory (Homelab)
-- Entra Connect Sync → Microsoft Entra ID
-- Cloud-based Conditional Access policies
-- Scoped Zero Trust test group
+- Microsoft Entra ID (Azure AD)
+- Conditional Access Policies
+- Identity Protection (P2 Features)
+- Microsoft Authenticator (MFA)
+- Test Users + Security Groups
 
 ---
 
-## 🔍 1. Environment Overview
+## 🧩 Architecture
 
-### Policy Dashboard
+- Test users assigned to a **Zero Trust security group**
+- Policies applied at group level (not tenant-wide)
+- Risk-based authentication decisions
+- Real login simulations using browser + mobile device
+
+---
+
+# 🛠️ 1. Overview
+
+### Conditional Access Policies Dashboard
 ![Policies Dashboard](screenshots/01-overview/policies-dashboard.png)
 
 ### Zero Trust Test Group
 ![Test Group](screenshots/01-overview/test-group.png)
 
-This group is used to safely test policies without impacting all users.
-
 ---
 
-## ⚙️ 2. Conditional Access Policy Configuration
+# ⚙️ 2. Policy Configuration
 
-### Conditional Access Overview
-![CA Overview](screenshots/02-policy-config/conditional-access-overview.png)
+## Conditional Access Overview
+![Overview](screenshots/02-policy-config/conditional-access-overview.png)
 
----
-
-### Group Targeting (Scoped Deployment)
+## Group Targeting (Zero Trust Scope)
 ![Group Targeting](screenshots/02-policy-config/group-targeting.png)
 
-Policies are applied only to a test group to simulate controlled rollout.
-
----
-
-### Policies Enabled
+## Policies Enabled
 ![Policies Enabled](screenshots/02-policy-config/policies-enabled.png)
 
 ---
 
-## 🛡️ Policy Breakdown
+## 🔐 Sign-in Risk Policy (MFA)
 
-### 🔹 Require MFA Policy
-- Applies to: Test group
-- Control: Require MFA
-
----
-
-### 🔹 Sign-in Risk Policy
-- Trigger: Medium sign-in risk
-- Control: Require MFA
-
-![Sign-in Risk Overview](screenshots/02-policy-config/signin-risk-mfa-overview.png)
+### Condition Configuration
 ![Sign-in Risk Condition](screenshots/02-policy-config/signin-risk-condition.png)
+
+### Grant Control (Require MFA)
 ![Sign-in Risk Grant](screenshots/02-policy-config/signin-risk-grant.png)
 
+### Policy Overview
+![Sign-in Risk Overview](screenshots/02-policy-config/signin-risk-mfa-overview.png)
+
 ---
 
-### 🔹 User Risk Policy
-- Trigger: Medium user risk
-- Controls:
-  - Require MFA
-  - Require password reset
+## ⚠️ User Risk Policy (Password Reset)
 
-![User Risk Overview](screenshots/02-policy-config/user-risk-overview.png)
+### Condition Configuration
 ![User Risk Condition](screenshots/02-policy-config/user-risk-condition.png)
+
+### Grant Control (Password Change)
 ![User Risk Grant](screenshots/02-policy-config/user-risk-grant.png)
 
+<<<<<<< HEAD
 ---
 
 ## 🔐 3. Policy Enforcement (Real Authentication Flow)
 
 ### MFA Challenge Triggered
 ![MFA Challenge](screenshots/03-enforcement/mfa-challenge-triggered.png)
+=======
+### Policy Overview
+![User Risk Overview](screenshots/02-policy-config/user-risk-overview.png)
+>>>>>>> b4a2bc7 (Changes to image structure and logging)
 
 ---
 
-### MFA Registration
+# 🔒 3. Policy Enforcement (Real Authentication Flow)
+
+## MFA Challenge Triggered
+![MFA Challenge](screenshots/03-enforcement/mfa-challenge-triggered.png)
+
+## MFA Registration Required
 ![MFA Registration](screenshots/03-enforcement/mfa-registration.png)
 
----
+## MFA After Authentication
+![MFA After](screenshots/03-enforcement/mfa-challenge-after-registration.png)
 
+<<<<<<< HEAD
 ### MFA After Authentication
 ![MFA After](screenshots/03-enforcement/mfa-challenge-after-registration.png)
 
 ---
 
 ### Password Change Enforcement
+=======
+## Password Change Enforcement
+>>>>>>> b4a2bc7 (Changes to image structure and logging)
 ![Password Change](screenshots/03-enforcement/password-change-enforced.png)
 
----
-
-### Successful Login
+## Successful Login
 ![Successful Login](screenshots/03-enforcement/successful-login.png)
 
 ---
 
-## 📊 4. Logging & Policy Validation
+# 📊 4. Logging & Validation
 
-### Sign-in Logs
+## Sign-in Logs
 ![Sign-in Logs](screenshots/04-logs/signin-logs.png)
 
----
-
-### Conditional Access Policy Evaluation
+## Conditional Access Policy Evaluation
 ![Policy Evaluation](screenshots/04-logs/policy-evaluation.png)
 
-### Observed Results:
-- MFA policy → ✅ Applied
-- Sign-in Risk policy → ❌ Not applied (no risk detected)
-- User Risk policy → ❌ Not applied (no risk detected)
+---
 
-This reflects real-world behavior where policies only apply when risk signals are present.
+# 🧠 Key Takeaways
+
+- Zero Trust requires **verification at every access attempt**
+- Policies should be applied using **groups for scalability**
+- Identity Protection enables **risk-based decisions**
+- MFA is critical but must be combined with:
+  - Risk signals
+  - Conditional access logic
+- Logs are essential for validating security posture
 
 ---
 
-## 🧠 Key Takeaways
-
-- Zero Trust is identity-driven, not network-driven
-- Conditional Access policies must be:
-  - Scoped
-  - Layered
-  - Tested before enforcement
-- Risk-based policies require real signals to trigger
-- Logging is critical to validate security controls
-
----
-
-## 🚀 Skills Demonstrated
+# 🚀 Skills Demonstrated
 
 - Microsoft Entra ID (Azure AD)
-- Conditional Access
+- Conditional Access Policy Design
 - Identity Protection (User Risk / Sign-in Risk)
 - MFA Implementation
-- Zero Trust Architecture
-- Hybrid Identity (AD + Entra Connect)
 - Authentication Flow Analysis
-- Security Logging
+- Security Logging & Troubleshooting
+- Zero Trust Architecture Concepts
 
 ---
 
-## 📈 Future Improvements
+# 🎯 Outcome
 
-- Named Locations (trusted vs untrusted)
-- Device compliance (Intune)
-- FIDO2 / passwordless authentication
-- Microsoft Sentinel integration
+This lab simulates how modern organizations:
+
+- Detect risky sign-ins
+- Enforce MFA dynamically
+- Force credential resets for compromised users
+- Validate enforcement through real authentication logs
 
 ---
 
-## 🧾 Summary
+# 📌 Next Steps
 
-This project demonstrates a real-world implementation of Zero Trust identity security using Microsoft Entra ID.
-
-It includes policy design, enforcement, and validation through real authentication flows and logging analysis.
+- Integrate with AWS (IAM + Federation)
+- Deploy infrastructure using Terraform
+- Add monitoring (CloudWatch / Sentinel)
+- Expand into full Cloud Security architecture
