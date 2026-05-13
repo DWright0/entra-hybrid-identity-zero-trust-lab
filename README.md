@@ -77,7 +77,6 @@ The lab demonstrates:
 ### Grant Control (Password Change)
 ![User Risk Grant](screenshots/02-policy-config/user-risk-grant.png)
 
-<<<<<<< HEAD
 ---
 
 ## 🔐 3. Policy Enforcement (Real Authentication Flow)
@@ -87,7 +86,7 @@ The lab demonstrates:
 =======
 ### Policy Overview
 ![User Risk Overview](screenshots/02-policy-config/user-risk-overview.png)
->>>>>>> b4a2bc7 (Changes to image structure and logging)
+
 
 ---
 
@@ -102,7 +101,7 @@ The lab demonstrates:
 ## MFA After Authentication
 ![MFA After](screenshots/03-enforcement/mfa-challenge-after-registration.png)
 
-<<<<<<< HEAD
+
 ### MFA After Authentication
 ![MFA After](screenshots/03-enforcement/mfa-challenge-after-registration.png)
 
@@ -111,7 +110,7 @@ The lab demonstrates:
 ### Password Change Enforcement
 =======
 ## Password Change Enforcement
->>>>>>> b4a2bc7 (Changes to image structure and logging)
+
 ![Password Change](screenshots/03-enforcement/password-change-enforced.png)
 
 ## Successful Login
